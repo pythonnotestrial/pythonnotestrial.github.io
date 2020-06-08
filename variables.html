@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Python Notes - Variables & Functions</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Python</strong> Notes</a>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Variables & Functions</h1>
+									</header>
+
+									
+									<hr class="major" />
+									<p>A variable is a named value that references or stores a piece of data.
+										Variables can be assigned by using an “=” sign, as shown below:</p>
+<pre><code>x=5
+x = 5
+print(x)    # x evaluates to 5
+print(x*2)  # evaluates to 10
+y = 5
+print(y==x) # evaluates to true
+</code></pre>
+<p>Variable names must start with a letter and cannot contain special characters. </p>
+<p>Variables can be updated with operations and can assume different data types.
+	The operations available to each variable differ based on data type--for instance, you can't divide a "True" by "False"!
+</p>
+
+<hr class="major" />
+<h2>Statements & Expressions</h2>
+<p>An expression is a combination of symbols that represent a value. Examples:</p>
+<pre><code>10            # numbers
+"A"           # characters
+"Jesse Chan"  # strings
+1 + 2 
+10 / 5        # combinations of numbers
+True or False # Booleans
+(25 > 3)      # this evaluates to True, which is a Boolean
+</code></pre>
+<p>Statements are lines of code that perform actions. Statements may be made up of expressions. Examples:</p>
+<pre><code>x = 4
+text = "Bob" + "the" + "Builder"
+print(text) # this shows "Bob the Builder"
+</code></pre>
+
+<hr class="major" />
+<h2>Functions</h2>
+<p>A function is a named part of a program that performs some procedure. The format in which we declare functions in Python is shown below.</p>
+<pre><code>def function_name(parameters): # this is the header
+	# this is where my body would go...if I had one
+</code></pre>
+<p>We can see that functions are made up of three elements: a name, parameters, and some action (the body). 
+	The header is made up of the name and parameters. We separate the header and body with a newline and 
+	an indent--most Python programmers use tabs to indent.
+</p>
+<p>Note that functions don't necessarily need to have any parameters at all! 
+	This is done if nothing is included between the parantheses.
+</p>
+<p>A return statement, well, returns a value as part of a function. 
+	This ends a function immediately.
+	If a function has no return statement, it will return None.
+	An example of a function that multiples two numbers:</p>
+<pre><code>def multiply(x, y):   # declare a function using "def". This function's name
+		      # is "multiply", and it takes in two parameters, x and y
+	return x * y  # this function multiplies x and y
+print(multiply(2, 3)) # this shows 2*3, which is 6
+</code></pre>
+<p>A lot of newbies in Python will confuse print() and return. 
+	print() is a function that shows, in the console, what you put between the brackets.
+	return is just a statement, so you won't see it unless you print it. For example:
+</p>
+<pre><code>def add(x, y):
+	print(x + y)    # this function prints the sum of x and y, but doesn't return anything
+add(3, 7) 		# we see that "10" gets printed to the console
+print(add(3, 7)) 	# again, "10" is printed, but so is "None"! That's because we're not returning anything,
+		 	# so when we print the result of add(3, 7), there's no result to print!
+</code></pre>
+
+<hr class="major" />
+<h2>Local vs. Global Variables</h2>
+<p>Variables are defined within a specific scope--this means that they can't be used everywhere in your code, but only where you define them.</p>
+<p>A local variable is one that is defined inside a function, and hence only exist inside that function. An example:</p>
+<pre><code>def wow():
+	x = 5
+	y = 3
+	return x + y
+print(wow()) # this shows x+y, which is 8
+# the following two statements yield errors, since you never declared x and y outside of a function!
+print(x) 
+print(y)
+</code></pre>
+
+<span class="image fit"><img src="images/variables.png" alt="" /></span>
+
+<p>A global variable is the complete opposite--it is declared outside functions, and can be used anywhere. Usually, it is good style to not use global variables, because 
+	it would "pollute the global namespace", making it difficult to keep track of the scope of variables.
+</p>
+<pre><code>z = 1 # global variable
+def wow():
+	x = 5 # local variable
+	y = 3 # local variable
+	return x + y + z
+print(wow()) # this shows x+y+z, which is 9
+# this is fine, since z can be used outside a function!
+print(z) 
+</code></pre>
+
+<hr class="major" />
+<h2>Helper Functions</h2>
+<p>You can call functions inside other functions! 
+	These are typically called helper functions, and are quite nice in implementing more advanced algorithms.
+</p>
+<pre><code>def add(x, y):
+	return x + y
+def multiply(x, y):
+	return x * y
+def complex_thing(x, y, z):
+	return multiply(add(x, y), z)
+print(complex_thing(1, 2, 3)) # this evaluates to (1+2)*3, which is 9
+</code></pre>
+
+</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+                <div id="sidebar">
+						<div class="inner">
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+                                        <li><a href="index.html">Homepage</a></li>
+										<li><a href="installation.html">Installation</a></li>
+										<li><a href="variables.html">Variables & Functions</a></li>
+										<li><a href="datatypes.html">Datatypes</a></li>
+										<li class="icon solid fa-lock"><span>Conditionals</span></li>
+										<li class="icon solid fa-lock"><span>Loops</span></li>
+										<li class="icon solid fa-lock"><span>Strings</span></li>
+										<li class="icon solid fa-lock"><span>Lists</span></li>
+										<li class="icon solid fa-lock"><span>Dictionary</span></li>
+										<li class="icon solid fa-lock"><span>Object Oriented Programming</span></li>
+										<li class="icon solid fa-lock"><span>Graphics</span></li>
+										<li class="icon solid fa-lock"><span>AI - minimax</span></li>
+										<li class="icon solid fa-lock"><span>AI - ab pruning</span></li>
+									</ul> 
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Contact us with questions through wechat or emails!</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">jessec1@andrew.cmu.edu</a></li>
+										<li class="icon solid fa-comment-alt">WeChatId: jzchan34</li>
+										<li class="icon solid fa-envelope"><a href="#">jerryl@andrew.cmu.edu</a></li>
+										<li class="icon solid fa-comment-alt">WeChatId: traumatizedpanda</li>
+									</ul>
+								</section>
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
